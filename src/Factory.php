@@ -36,6 +36,7 @@ class Factory
             new UrlGenerator\GithubUrlGenerator(),
             new UrlGenerator\BitbucketUrlGenerator(),
             new UrlGenerator\WordPressUrlGenerator(),
+            new UrlGenerator\DrupalUrlGenerator(),
         ];
 
         foreach ($gitlabHosts as $gitlabHost) {

@@ -59,14 +59,16 @@ class UpdateHandler implements OperationHandler
             $initialPackage->getPrettyVersion(),
             method_exists($initialPackage, 'getFullPrettyVersion') // This method was added after composer v1.0.0-alpha10
                 ? $initialPackage->getFullPrettyVersion()
-                : VersionParser::formatVersion($initialPackage)
+                : VersionParser::formatVersion($initialPackage),
+            $initialPackage->getDistReference()
         );
         $versionTo = new Version(
             $targetPackage->getVersion(),
             $targetPackage->getPrettyVersion(),
             method_exists($targetPackage, 'getFullPrettyVersion') // This method was added after composer v1.0.0-alpha10
                 ? $targetPackage->getFullPrettyVersion()
-                : VersionParser::formatVersion($targetPackage)
+                : VersionParser::formatVersion($targetPackage),
+            $targetPackage->getDistReference()
         );
 
         $action = 'updated';

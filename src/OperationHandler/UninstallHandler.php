@@ -56,7 +56,8 @@ class UninstallHandler implements OperationHandler
             $package->getPrettyVersion(),
             method_exists($package, 'getFullPrettyVersion') // This method was added after composer v1.0.0-alpha10
                 ? $package->getFullPrettyVersion()
-                : VersionParser::formatVersion($package)
+                : VersionParser::formatVersion($package),
+            $package->getDistReference()
         );
 
         $output[] = sprintf(

@@ -22,16 +22,21 @@ class Version
     /** @var string */
     private $fullPretty;
 
+    /** @var string */
+    private $distReference;
+
     /**
      * @param string $name
      * @param string $pretty
      * @param string $fullPretty
+     * @param string $distReference
      */
-    public function __construct($name, $pretty, $fullPretty)
+    public function __construct($name, $pretty, $fullPretty, $distReference = '')
     {
         $this->name = $name;
         $this->pretty = $pretty;
         $this->fullPretty = $fullPretty;
+        $this->distReference = $distReference;
     }
 
     /**
@@ -56,6 +61,14 @@ class Version
     public function getFullPretty()
     {
         return $this->fullPretty;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDistReference()
+    {
+        return $this->distReference;
     }
 
     /**

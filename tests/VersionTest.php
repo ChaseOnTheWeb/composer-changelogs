@@ -32,6 +32,13 @@ class VersionTest extends TestCase
         $this->assertSame('v.1.0.9999999.9999999-dev', $this->SUT->getName());
         $this->assertSame('dev-master', $this->SUT->getPretty());
         $this->assertSame('dev-master 1234abc', $this->SUT->getFullPretty());
+
+        $this->SUT = new Version('1.0.0.0', '1.0.0', '1.0.0', '8.x-1.0');
+
+        $this->assertSame('1.0.0.0', $this->SUT->getName());
+        $this->assertSame('1.0.0', $this->SUT->getPretty());
+        $this->assertSame('1.0.0', $this->SUT->getFullPretty());
+        $this->assertSame('8.x-1.0', $this->SUT->getDistReference());
     }
 
     public function testItDetectsDevVersion()
